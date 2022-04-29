@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UA_Xamarin_Client.NodePage"
+             Title="Nodes List">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Display Name" FontSize="20" Margin="0" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <ListView x:Name="listViewNode" ItemSelected="NodeSelected" Margin="10" SeparatorColor="White">
+                <ListView.ItemTemplate> 
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Label Text="{Binding DisplayName}" VerticalTextAlignment="Center" Padding="5,0,0,0"/>
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label x:Name="Infotext" FontSize="17"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Subcribe" x:Name="btSubcribe" Clicked="SubcribeCliked" Margin="0, 25, 15, 15" CornerRadius="15" FontSize="12" BorderWidth="1" BorderColor="White" BackgroundColor="Gray"/>
+                <Button Text="Get Method" x:Name="btGetMethod" Clicked="GetMethodClicked" Margin="15, 25, 0, 15" CornerRadius="15" FontSize="12" BorderWidth="1" BackgroundColor="Gray" BorderColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

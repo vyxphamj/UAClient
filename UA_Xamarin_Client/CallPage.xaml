@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UA_Xamarin_Client.CallPage"
+             Title="Call Method Page">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+
+            <Label Text="Input Arguments" FontSize="17" FontAttributes="Bold"/>
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Margin="20,0,0,5">
+                <Label Text="Name" VerticalOptions="Center" FontSize="12" FontAttributes="Bold"/>
+                <Label Text="DataType" VerticalTextAlignment="Center" Margin="55,0,75,0" FontSize="12" FontAttributes="Bold"/>
+                <Label Text="Value" VerticalTextAlignment="Center" FontSize="12" FontAttributes="Bold"/>
+
+            </StackLayout>
+            <ListView x:Name="listViewInput" SelectionMode="None" SeparatorColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Label Text="{Binding TagName}" VerticalOptions="Center" WidthRequest="105"/>
+                                <Label Text="{Binding DataType}" VerticalTextAlignment="Center" WidthRequest="100"/>
+                                <Entry Text="{Binding Value}" Placeholder="Enter Value"  />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Output Arguments" FontSize="17" FontAttributes="Bold"/>
+
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal"  Margin="20,0,0,5">
+                <Label Text="Name" VerticalOptions="Center" FontAttributes="Bold" FontSize="12"/>
+                <Label Text="DataType" VerticalTextAlignment="Center" Margin="55,0,75,0" FontAttributes="Bold" FontSize="12"/>
+                <Label Text="Value" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="12"/>
+            </StackLayout>
+
+            <ListView x:Name="listViewOutput" SelectionMode="None" SeparatorColor="White">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                <Label Text="{Binding TagName}" VerticalOptions="Center" WidthRequest="105"/>
+                                <Label Text="{Binding DataType}" VerticalTextAlignment="Center" WidthRequest="100"/>
+                                <Label Text="{Binding Value}" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 15" HorizontalOptions="CenterAndExpand">
+                <StackLayout Margin="0, 25, 115, 25"/>
+                <Button Text="Call" Clicked="CallClicked" FontSize="12" FontAttributes="Bold" TextColor="OrangeRed" CornerRadius="100" HeightRequest="100" WidthRequest="100" BorderWidth="2" BorderColor="OrangeRed" BackgroundColor="Gray"/>
+                <Button Text="Back" Clicked="BackClicked" Margin="30, 25, 0, 25" CornerRadius="15" FontSize="15" BorderWidth="1"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

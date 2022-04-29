@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UA_Xamarin_Client.ConnectPage"
+             Title="UA Client">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="IconState">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android"/>
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+
+            <StackLayout>
+                <Label Text="Endpoint Name"/>
+                <Label x:Name="EPName_Text" FontSize="18" FontAttributes="Bold, Italic" Margin="0, 0, 0, 10" HeightRequest="50"/>
+                <Label Text="Endpoint"/>
+                <Entry x:Name="EP_Text" Placeholder="Enter Endpoint"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="0, 15, 0, 15" HorizontalOptions="CenterAndExpand">
+                <Button Text="Disconnect" Clicked="DisconnectClicked" x:Name="DisconnectButton" Margin="0, 25, 15, 25" CornerRadius="15" FontSize="8" BorderWidth="1" BorderColor="White" BackgroundColor="Gray"/>
+                <Button Text="Connect" Clicked="btConnect_Clicked" FontSize="12" TextColor="GreenYellow" CornerRadius="100" HeightRequest="100" WidthRequest="100" BorderWidth="2" BorderColor="GreenYellow" BackgroundColor="Gray"/>
+                <Button Text="Show Node" Clicked="ShowNode_Clicked" x:Name="ShowNodeButton" Margin="15, 25, 0, 25" CornerRadius="15" FontSize="8" BorderWidth="1" BackgroundColor="Gray" BorderColor="White"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label Text="User Authentication"/>
+                <Switch x:Name="Authentication_Switch"/>
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsToggled, Source={x:Reference Authentication_Switch}}">
+                <Label Text="Username"/>
+                <Entry x:Name="Username" Placeholder="Enter Username"/>
+                <Label Text="Password"/>
+                <Entry x:Name="Password" Placeholder="Enter Password"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
